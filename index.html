@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimIntellio · Jhansi · Warm Earthy Theme</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Cal.com embed for booking modal -->
+    <script
+        type="text/javascript">(function (C, A, L) { let p = function (a, ar) { a.q.push(ar) }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true } if (ar[0] === L) { const api = function () { p(api, arguments) }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return } p(cal, ar) }; })(window, "https://app.cal.com/embed/embed.js", "init"); Cal("init", { origin: "https://cal.com" });</script>
+    <style>
+        /* ═══════════════════════════════════════
+           GLOBAL RESET & TOKENS
+        ═══════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #dceeed;
+            color: #4b5563;
+            overflow-x: hidden;
+        }
+
+        /* ─── SCROLLBARS ─── */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e8f5f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(2, 91, 95, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(2, 91, 95, 0.4);
+        }
+
+        /* Cursor glow */
+        .cursor-glow {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(2, 91, 95, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: left 0.18s ease, top 0.18s ease;
+        }
+
+        /* ─── PROJECT FRAME ─── */
+        .project-frame {
+            background: #141414;
+            border-bottom: 1px solid #2a2a2a;
+            width: 100%;
+            z-index: 210;
+            position: relative;
+        }
+
+        .project-bar {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 14px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pmark {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #888;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .pmark-logo {
+            height: 24px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .pmark .dot {
+            width: 7px;
+            height: 7px;
+            background: #5DCAA5;
+            border-radius: 50%;
+        }
+
+        /* Sticky nav */
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 68px;
+            background: rgba(2, 91, 95, 0.95);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(2, 91, 95, 0.15);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-product {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #f2ead9;
+        }
+
+        .nav-product .glow-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #f26a21;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px #f26a21;
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 10px #f26a21;
+            }
+
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 20px #f26a21;
+            }
+        }
+
+        .nav-by {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #a3c1c2;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-cta {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            border: 1.5px solid #c6ff00;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .nav-cta:hover {
+            background: #c6ff00;
+            color: #012d2f;
+        }
+
+        /* Hero (section 1) */
+        #hero-1 {
+            position: relative;
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 40px 30px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f5f5 0%, #d5ecea 60%, #d5ecea 100%);
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.55;
+        }
+
+        .hero1-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero1-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 0px;
+        }
+
+        .hero1-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero1-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero1-image-wrap {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(2, 91, 95, 0.1);
+            border: 1px solid rgba(2, 91, 95, 0.15);
+            background: #fff;
+        }
+
+        .hero1-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.15em;
+            color: #025b5f;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(2, 91, 95, 0.08);
+            border: 1px solid rgba(2, 91, 95, 0.18);
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
+
+        .hero-label-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #025b5f;
+            flex-shrink: 0;
+        }
+
+        .hero1-h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(32px, 4.5vw, 52px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: #012d2f;
+        }
+
+        .hero1-h1 em {
+            font-style: italic;
+            color: #025b5f;
+            font-weight: 700;
+        }
+
+        .hero1-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(15px, 1.8vw, 18px);
+            line-height: 1.75;
+            color: #1f2937; /* high contrast dark charcoal */
+            font-weight: 500; /* slightly bolder for readability */
+            max-width: 600px;
+            margin-bottom: 16px;
+            margin-top: 14px;
+        }
+
+        .hero1-stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(2, 91, 95, 0.05);
+            border: 1px solid rgba(2, 91, 95, 0.12);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #4b5563;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            white-space: nowrap;
+        }
+
+        .stat-pill:hover {
+            transform: translateY(-3px);
+            border-color: #025b5f;
+            background: #025b5f;
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(2, 91, 95, 0.15);
+        }
+
+        .stat-pill .snum {
+            font-size: 20px;
+            font-weight: 600;
+            color: #025b5f;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .stat-pill:hover .snum {
+            color: #ffffff;
+        }
+
+        .scroll-nudge {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: #4b5563;
+            text-transform: uppercase;
+            margin-top: 24px;
+        }
+
+        .scroll-nudge .line {
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, #025b5f, transparent);
+            animation: drip 1.8s ease-in-out infinite;
+        }
+
+        @keyframes drip {
+
+            0%,
+            100% {
+                transform: scaleY(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scaleY(1.4);
+                opacity: 1;
+            }
+        }
+
+        /* Reveal utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 2 — JHANSI LANDING HERO
+        ═══════════════════════════════════════ */
+        #hero-2 {
+            background: linear-gradient(135deg, #e8f5f5 0%, #d5ecea 60%, #d5ecea 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero2-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(2, 91, 95, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(2, 91, 95, .06) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+        }
+
+        .hero2-glow {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(2, 91, 95, .15) 0%, transparent 68%);
+            pointer-events: none;
+        }
+
+        .hero2-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1280px;
+            width: 100%;
+        }
+
+        .hero2-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 660px;
+        }
+
+        .hero2-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(2, 91, 95, 0.06);
+            border: 1px solid rgba(2, 91, 95, 0.18);
+            color: #025b5f;
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero2-kicker-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #025b5f;
+            animation: blink 2.2s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero2-h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(32px, 4.5vw, 52px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: #012d2f;
+            margin-bottom: 10px;
+        }
+
+        .hero2-h1 em {
+            font-style: italic;
+            color: #025b5f;
+            font-weight: 700;
+        }
+
+        .hero2-h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+            font-weight: 700;
+            color: #4b5563;
+            margin-bottom: 22px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero2-desc {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.80;
+            color: #4b5563;
+            max-width: 580px;
+            margin-bottom: 34px;
+            font-weight: 300;
+        }
+
+        .hero2-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-lime {
+            background: linear-gradient(135deg, #025b5f, #04888e);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 14px 30px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: .03em;
+            transition: all .22s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 24px rgba(2, 91, 95, 0.2);
+            text-decoration: none;
+        }
+
+        .btn-lime:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(2, 91, 95, 0.35);
+        }
+
+        .btn-ghost-2 {
+            background: transparent;
+            color: #4b5563;
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 13px 24px;
+            border-radius: 8px;
+            border: 1.5px solid rgba(2, 91, 95, 0.3);
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: .02em;
+            transition: all .22s;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .btn-ghost-2:hover {
+            border-color: #025b5f;
+            color: #025b5f;
+            background: rgba(2, 91, 95, 0.06);
+        }
+
+        .hero2-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .hero2-report-card {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(2, 91, 95, 0.15);
+            border: 1px solid rgba(2, 91, 95, 0.15);
+            background: #fff;
+        }
+
+        .hero2-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+
+        .hs2 {
+            background: rgba(2, 91, 95, 0.05);
+            border: 1px solid rgba(2, 91, 95, 0.15);
+            border-radius: 8px;
+            padding: 12px 10px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .hs2:hover {
+            transform: translateY(-4px);
+            background: #025b5f;
+            border-color: #025b5f;
+            box-shadow: 0 10px 24px rgba(2, 91, 95, 0.2);
+        }
+
+        .hs2:hover .hs2-n {
+            color: #c6ff00;
+        }
+
+        .hs2:hover .hs2-l {
+            color: #ffffff;
+        }
+
+        .hs2-n {
+            font-family: 'Fraunces', serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #025b5f;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .hs2-l {
+            font-size: 9px;
+            color: #4b5563;
+            margin-top: 5px;
+            line-height: 1.5;
+            font-family: 'JetBrains Mono', monospace;
+            transition: color 0.3s ease;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 3 — BRIEF CONTENT
+        ═══════════════════════════════════════ */
+        #press-content {
+            background: #dceeed;
+            padding: 0;
+        }
+
+        .press-doc {
+            width: 100%;
+            background: #dceeed;
+            color: #4b5563;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(2, 91, 95, 0.15);
+        }
+
+        .press-flag {
+            background: #025b5f;
+            color: #ffffff;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(2, 91, 95, 0.15);
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            gap: 60px;
+            animation: marquee-scroll 30s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .marquee-item .snum {
+            font-weight: 700;
+            color: #c6ff00;
+            font-size: 13px;
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .press-body {
+            padding: 50px 52px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .press-hero {
+            padding: 0 0 32px;
+            border-bottom: 2px solid #025b5f;
+            margin-bottom: 32px;
+        }
+
+        .press-kicker {
+            font-family: 'Manrope', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #025b5f;
+            margin-bottom: 16px;
+        }
+
+        .press-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 54px);
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 18px;
+            color: #1a1a2e;
+        }
+
+        .press-deck {
+            font-family: 'Source Serif 4', serif;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #4b5563;
+            font-weight: 400;
+            max-width: 780px;
+        }
+
+        .press-byline {
+            margin-top: 24px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 11px;
+            color: #4b5563;
+            letter-spacing: 0.05em;
+            display: flex;
+            gap: 24px;
+        }
+
+        .press-byline strong {
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        /* Megastat */
+        .press-megastat {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            padding: 32px 0;
+            border-bottom: 1px solid rgba(2, 91, 95, 0.15);
+            margin-bottom: 32px;
+        }
+
+        .press-megastat .mega-num {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(90px, 12vw, 160px);
+            line-height: 0.85;
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            color: #1a1a2e;
+        }
+
+        .press-megastat .mega-num .slash {
+            color: #025b5f;
+        }
+
+        .press-megastat .mega-text {
+            font-family: 'Source Serif 4', serif;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #4b5563;
+        }
+
+        .press-megastat .mega-text strong {
+            color: #025b5f;
+            font-weight: 600;
+        }
+
+        .press-megastat .mega-caption {
+            font-family: 'Manrope', sans-serif;
+            font-size: 11px;
+            color: #4b5563;
+            letter-spacing: 0.05em;
+            margin-top: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Divergence section */
+        .press-divergence {
+            margin: 40px 0;
+            padding: 32px;
+            background: #fbfaf3;
+            border: 1.5px solid #025b5f;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(2, 91, 95, 0.08);
+        }
+
+        .press-divergence-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .press-divergence-head .pd-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #1a1a2e;
+        }
+
+        .press-divergence-head .pd-period {
+            font-size: 10px;
+            color: #4b5563;
+            letter-spacing: 0.1em;
+        }
+
+        .press-divergence-sub {
+            font-family: 'Source Serif 4', serif;
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+
+        .press-divergence-charts {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 24px;
+        }
+
+        .press-divergence-charts svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Table Block chart */
+        .press-section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #025b5f;
+            margin: 40px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(2, 91, 95, 0.15);
+            font-weight: 700;
+        }
+
+        .press-blockchart-scroll {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 32px;
+        }
+
+        .press-blockchart {
+            min-width: 760px;
+            background: #fbfaf3;
+            border: 1.5px solid #025b5f;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(2, 91, 95, 0.08);
+        }
+
+        .press-blockchart svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Story angles */
+        .press-storyleads {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .press-lead {
+            position: relative;
+            overflow: hidden;
+            background: #012d2f; /* dark forest green background */
+            border: 1.5px solid rgba(198, 255, 0, 0.15); /* subtle lime border */
+            border-radius: 10px;
+            padding: 24px 24px 22px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.35s ease, background 0.35s ease;
+            z-index: 1;
+        }
+
+        .press-lead-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.75; /* highly visible in original colors */
+            mix-blend-mode: normal;
+            filter: contrast(1.05) brightness(0.95);
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        /* Gradient overlay to ensure text legibility on top of the background image */
+        .press-lead-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #fbfaf3 45%, rgba(251, 250, 243, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .press-lead:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(2, 91, 95, 0.18);
+            border-color: rgba(2, 91, 95, 0.45);
+        }
+
+        .press-lead:hover .press-lead-bg {
+            transform: scale(1.06);
+            opacity: 0.90; /* even more visible on hover */
+        }
+
+        .press-lead h4,
+        .press-lead p,
+        .press-lead .lead-num {
+            position: relative;
+            z-index: 2;
+        }
+
+        .lead-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: #025b5f; /* dark teal normally */
+            line-height: 1;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .press-lead h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            color: #0f172a; /* very dark slate */
+            transition: color 0.3s ease;
+        }
+
+        .press-lead p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2937; /* very dark charcoal */
+            transition: color 0.3s ease;
+        }
+
+        .press-lead:hover h4 {
+            color: #000000; /* pure black on hover */
+        }
+
+        .press-lead:hover p {
+            color: #111111; /* very dark charcoal on hover */
+        }
+
+        .press-lead:hover .lead-num {
+            color: #012d2f;
+        }
+
+        /* Floating CTA on the right side */
+        .floating-cta {
+            position: fixed;
+            right: 0;
+            top: 55%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: right bottom;
+            z-index: 1000;
+            background: #c6ff00; /* vibrant fluorescent green-yellow */
+            color: #012d2f; /* dark forest green text for high readability */
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .floating-cta:hover {
+            background: #b2e600; /* slightly darker fluorescent green-yellow on hover */
+            color: #012d2f;
+            transform: translateY(-50%) rotate(-90deg) translateY(-5px); /* pop out towards left */
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Featured report */
+        .press-featured-report {
+            margin: 32px 0;
+            background: #fbfaf3;
+            border: 1.5px solid rgba(2, 91, 95, 0.22);
+            border-radius: 12px;
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 4px 20px rgba(2, 91, 95, 0.08);
+        }
+
+        .press-featured-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #025b5f;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .press-featured-title {
+            font-family: 'Fraunces', serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.35;
+            color: #1a1a2e;
+            max-width: 680px;
+        }
+
+        .press-featured-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 4px;
+            background: #025b5f;
+            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .press-featured-btn:hover {
+            background: #04888e;
+            transform: translateY(-1px);
+        }
+
+        /* Press Footer Row */
+        .press-footer-row {
+            padding: 18px 0 20px;
+            border-top: 1px solid rgba(2, 91, 95, 0.15);
+            font-family: 'Manrope', sans-serif;
+            font-size: 11px;
+            color: #4b5563;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .press-footer-row a {
+            color: #025b5f;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 4 — CLIMINTELLIO CTA
+        ═══════════════════════════════════════ */
+        #cta {
+            background: linear-gradient(135deg, #e8f5f5 0%, #e8f5f5 50%, #d5ecea 100%);
+            padding: 48px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(2, 91, 95, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(2, 91, 95, 0.05) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none;
+        }
+
+        .cta-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Fraunces', serif;
+            font-size: clamp(80px, 14vw, 200px);
+            font-weight: 900;
+            color: rgba(2, 91, 95, 0.04);
+            white-space: nowrap;
+            letter-spacing: -0.04em;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .cta-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            color: #025b5f;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .cta-label::before {
+            content: '//';
+            color: rgba(2, 91, 95, 0.25);
+            font-size: 13px;
+        }
+
+        #cta h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(32px, 4.5vw, 52px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: #012d2f;
+            margin-bottom: 24px;
+        }
+
+        #cta h2 em {
+            font-style: italic;
+            color: #025b5f;
+            font-weight: 700;
+        }
+
+        #cta>.cta-inner>p {
+            font-family: 'Source Serif 4', serif;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #4b5563;
+            font-weight: 300;
+            max-width: 560px;
+            margin: 0 auto 52px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .cta-btn-primary {
+            background: #025b5f;
+            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 3px;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn-primary:hover {
+            background: #04888e;
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-ghost {
+            background: transparent;
+            color: #4b5563;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 15px 32px;
+            border-radius: 3px;
+            border: 1px solid rgba(2, 91, 95, 0.3);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-btn-ghost:hover {
+            background: #012d2f;
+            border-color: #012d2f;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(1, 45, 47, 0.2);
+        }
+
+        .cta-contact {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #4b5563;
+            letter-spacing: 0.08em;
+        }
+
+        .cta-contact a {
+            color: #025b5f;
+            text-decoration: none;
+        }
+
+        .cta-contact a:hover {
+            color: #04888e;
+        }
+
+        /* Separator */
+        .section-sep {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(2, 91, 95, 0.18), transparent);
+        }
+
+        /* District Brief request modal */
+        .gateway-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+        }
+
+        .gateway-overlay.is-open {
+            display: flex;
+        }
+
+        .gateway-panel {
+            width: min(580px, 100%);
+            max-height: min(95vh, 820px);
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            color: #1a1a2e;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .gateway-head {
+            background: #012d2f;
+            padding: 16px 22px 14px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .gateway-head-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .gateway-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            color: rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+        }
+
+        .gateway-title {
+            color: #ffffff;
+            font-family: 'Fraunces', serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .gateway-subtitle {
+            margin-top: 2px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 11.5px;
+            line-height: 1.4;
+        }
+
+        .gateway-body {
+            padding: 18px 22px 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .gateway-close {
+            width: 32px;
+            height: 32px;
+            flex: 0 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .gateway-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .gateway-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 11px 12px;
+        }
+
+        .gateway-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .gateway-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .gateway-field label {
+            color: #374151;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+
+        .gateway-field .required {
+            color: #e63946;
+        }
+
+        .gateway-field .optional {
+            color: #9ca3af;
+            font-weight: 400;
+            margin-left: 2px;
+        }
+
+        .gateway-field input,
+        .gateway-field select,
+        .gateway-field textarea {
+            width: 100%;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 7px;
+            padding: 8px 11px;
+            color: #1a1a2e;
+            font: inherit;
+            font-size: 13px;
+            outline: none;
+            background: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .gateway-field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 13px center;
+            padding-right: 36px;
+        }
+
+        .gateway-field textarea {
+            min-height: 56px;
+            resize: vertical;
+        }
+
+        .gateway-field input::placeholder,
+        .gateway-field textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .gateway-field input:focus,
+        .gateway-field select:focus,
+        .gateway-field textarea:focus {
+            border-color: #025b5f;
+            box-shadow: 0 0 0 3px rgba(2, 91, 95, 0.1);
+        }
+
+        .gateway-field-hint {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 2px;
+        }
+
+        .gateway-privacy {
+            grid-column: 1 / -1;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+            padding: 8px 12px;
+            font-size: 10.5px;
+            color: #6b7280;
+            line-height: 1.45;
+        }
+
+        .gateway-submit {
+            grid-column: 1 / -1;
+            border: 0;
+            border-radius: 8px;
+            padding: 10px 22px;
+            background: #012d2f;
+            color: #fff;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .gateway-submit:hover {
+            background: #025b5f;
+            transform: translateY(-1px);
+        }
+
+        .gateway-divider {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        .gateway-divider::before,
+        .gateway-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        .gateway-alt-btn {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 9px 22px;
+            background: #fff;
+            color: #374151;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .gateway-alt-btn:hover {
+            border-color: #025b5f;
+            background: #f0fafa;
+            color: #025b5f;
+        }
+
+        /* Screen Size Responsiveness */
+        @media(max-width:880px) {
+            nav {
+                padding: 0 20px;
+                height: 60px;
+            }
+
+            .nav-by {
+                display: none;
+            }
+
+            .nav-cta {
+                font-size: 12px;
+                padding: 7px 14px;
+            }
+
+            #hero-1 {
+                padding: 90px 24px 50px;
+                min-height: auto;
+            }
+
+            #hero-2 {
+                padding: 40px 24px 60px;
+            }
+
+            #press-content {
+                padding: 0;
+            }
+
+            #cta {
+                padding: 40px 24px 60px;
+            }
+
+            .hero1-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                text-align: center;
+            }
+
+            .hero1-left {
+                align-items: center;
+            }
+
+            .hero1-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero2-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero2-left {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .hero2-cta {
+                justify-content: center;
+            }
+
+            .hero2-right {
+                align-items: center;
+            }
+
+            .press-megastat {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .press-divergence-charts {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .press-storyleads {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .press-body {
+                padding: 24px 20px;
+            }
+
+            .press-hero {
+                text-align: center;
+            }
+
+            .press-byline {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .press-flag-inner {
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 4px;
+                text-align: center;
+            }
+
+            .press-divergence {
+                padding: 20px;
+            }
+
+            .press-featured-report {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .press-featured-btn {
+                width: 100%;
+            }
+
+            .press-footer-row {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .hero1-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Floating CTA -->
+    <button class="floating-cta" onclick="window.open('https://www.climagroanalytics.com/climintellio', '_blank')">Explore ClimIntellio</button>
+
+    <!-- ═══════════════════════════════════════
+         STICKY NAV
+    ═══════════════════════════════════════ -->
+    <nav>
+        <div class="nav-brand">
+            <img src="logo_white.webp" alt="Logo"
+                style="height: 44px; width: auto; align-self: center; margin-right: 8px; filter: brightness(0) invert(86%) sepia(97%) saturate(2330%) hue-rotate(40deg) brightness(103%) contrast(101%);">
+            <span class="nav-product">ClimIntellio</span>
+            <span class="nav-by">by ClimAgro Analytics</span>
+        </div>
+        <a class="nav-cta" href="https://www.climagroanalytics.com/jhashi_report.php" target="_blank">Access Jhansi
+            Report</a>
+    </nav>
+
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — CLIMINTELLIO HERO
+    ═══════════════════════════════════════ -->
+    <section id="hero-1">
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="hero1-inner">
+            <div class="hero1-grid">
+                <!-- Left column: Headline and description -->
+                <div class="hero1-left">
+                    <div class="hero-label reveal"><span class="hero-label-dot"></span>CLIMATE HAZARD INTELLIGENCE
+                        PLATFORM</div>
+
+                    <h1 class="hero1-h1 reveal" style="transition-delay:.08s">
+                        Every district.<br>
+                        <em>Every block.</em><br>
+                        Every year since 1901.
+                    </h1>
+
+                    <p class="hero1-tagline reveal" style="transition-delay:.16s">
+                        ClimIntellio, our ready-to-use climate hazard intelligence platform. Access
+                        high-resolution climate data, hazard maps, and projections tailored to your geography, sector,
+                        and risk profile. Our climate data enables powerful insights to build resilience, inform policy,
+                        and guide investments in a rapidly changing world.
+                    </p>
+                </div>
+
+                <!-- Right column: Trends image -->
+                <div class="hero1-right reveal" style="transition-delay:.16s">
+                    <div class="hero1-image-wrap">
+                        <img src="up_trends.webp" alt="UP Climate Trends" class="hero1-img">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <div class="section-sep"></div>
+
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — JHANSI HERO
+    ═══════════════════════════════════════ -->
+    <section id="hero-2">
+        <div class="hero2-grid"></div>
+        <div class="hero2-glow"></div>
+
+        <div class="hero2-inner">
+            <!-- Left: headline + CTA -->
+            <div class="hero2-left reveal">
+                <div class="hero2-kicker">
+                    <span class="hero2-kicker-dot"></span>
+                    A 123-Year Climate Record · Bundelkhand
+                </div>
+
+                <h1 class="hero2-h1">
+                    Synergistic Effects of Rising Summer Temperatures &amp;<br>
+                    <em>Decreasing Summer Season Rainfall</em>
+                </h1>
+                <h2 class="hero2-h2">on Jhansi's Water Availability</h2>
+
+                <p class="hero2-desc">
+                    Average summer temperature: <strong style="color:#025b5f">30°C</strong> &nbsp;·&nbsp;
+                    Average maximum summer temperature: <strong style="color:#025b5f">37.53°C</strong> &nbsp;·&nbsp;
+                    Average peak summer maximum: <strong style="color:#04888e">44.90°C</strong>
+                </p>
+
+                <div class="hero2-cta">
+                    <a class="btn-lime" href="https://www.climagroanalytics.com/jhashi_report.php" target="_blank">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path d="M12 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-8" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                        Access Full Report
+                    </a>
+                    <button class="btn-ghost-2"
+                        onclick="document.getElementById('press-content').scrollIntoView({behavior:'smooth'})">
+                        Explore Findings ↓
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: visual card + stats -->
+            <div class="hero2-right reveal" style="transition-delay:.12s">
+                <div class="hero2-report-card">
+                    <img src="jhansi_report_cover.webp" alt="Jhansi Hydroclimatic Report Cover"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <div class="hero2-stats">
+                    <div class="hs2">
+                        <div class="hs2-n">123 yrs</div>
+                        <div class="hs2-l">Pre-monsoon rainfall<br>records (1901–2024)</div>
+                    </div>
+                    <div class="hs2">
+                        <div class="hs2-n">driest</div>
+                        <div class="hs2-l">One of the driest<br>Pre-monsoon zones in UP</div>
+                    </div>
+                    <div class="hs2">
+                        <div class="hs2-n">~30°C</div>
+                        <div class="hs2-l">Seasonal mean temp<br>(1981–2010 baseline)</div>
+                    </div>
+                    <div class="hs2">
+                        <div class="hs2-n">8 blocks</div>
+                        <div class="hs2-l">Spatial risk<br>profiling, Jhansi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-sep"></div>
+
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — BRIEF DOCUMENT CONTENT
+    ═══════════════════════════════════════ -->
+    <section id="press-content">
+        <div class="press-doc">
+            <div class="press-flag">
+                <div class="marquee-wrapper">
+                    <div class="marquee-content">
+                        <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
+                        <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
+                        <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
+                        <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
+                        <span class="marquee-item"><span class="snum">500+</span> Districts</span>
+                        <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
+                        <!-- Duplicate for seamless looping -->
+                        <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
+                        <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
+                        <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
+                        <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
+                        <span class="marquee-item"><span class="snum">500+</span> Districts</span>
+                        <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="press-body">
+
+
+
+
+                <!-- DIVERGENCE STORY -->
+                <div class="press-divergence">
+                    <div class="press-divergence-head">
+                        <span class="pd-title">The Compounding Story</span>
+                        <span class="pd-period">PRE-MONSOON · ALL BLOCKS</span>
+                    </div>
+                    <p class="press-divergence-sub">Rain is splitting. Heat is universal.</p>
+
+                    <div class="press-divergence-charts">
+                        <!-- Rainfall Chart -->
+                        <svg viewBox="0 0 430 220" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="430" height="220" fill="transparent" rx="6" />
+                            <text x="20" y="24" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
+                                fill="#1a1a2e" letter-spacing="1.5">RAINFALL TREND (1901–2024)</text>
+                            <text x="20" y="40" font-family="Source Serif 4,serif" font-size="13" font-style="italic"
+                                fill="#025b5f">Four blocks down, four up</text>
+                            <line x1="40" y1="180" x2="320" y2="180" stroke="#d8cfc4" stroke-width="1" />
+                            <text x="40" y="197" font-family="Manrope,sans-serif" font-size="9"
+                                fill="#4b5563">1901</text>
+                            <text x="305" y="197" font-family="Manrope,sans-serif" font-size="9"
+                                fill="#4b5563">2024</text>
+                            <!-- 4 declining lines (red) -->
+                            <path d="M 40 80 Q 180 95 320 145" stroke="#e63946" stroke-width="2" fill="none" />
+                            <path d="M 40 95 Q 180 110 320 155" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.7" />
+                            <path d="M 40 88 Q 180 105 320 138" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.5" />
+                            <path d="M 40 105 Q 180 118 320 150" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.4" />
+                            <!-- 4 rising lines (blue) -->
+                            <path d="M 40 140 Q 180 130 320 105" stroke="#025b5f" stroke-width="1.5" fill="none"
+                                opacity="0.6" />
+                            <path d="M 40 155 Q 180 140 320 115" stroke="#025b5f" stroke-width="1.5" fill="none"
+                                opacity="0.5" />
+                            <path d="M 40 148 Q 180 138 320 110" stroke="#025b5f" stroke-width="1.5" fill="none"
+                                opacity="0.4" />
+                            <path d="M 40 160 Q 180 145 320 122" stroke="#025b5f" stroke-width="1.5" fill="none"
+                                opacity="0.4" />
+                            <!-- labels -->
+                            <text x="328" y="148" font-family="Manrope,sans-serif" font-size="10" font-weight="700"
+                                fill="#e63946">↓ 4 BLOCKS</text>
+                            <text x="328" y="160" font-family="Manrope,sans-serif" font-size="8" fill="#e63946">Moth,
+                                Bamaur,</text>
+                            <text x="328" y="170" font-family="Manrope,sans-serif" font-size="8"
+                                fill="#e63946">Chirgaon, Gursarai</text>
+                            <text x="328" y="110" font-family="Manrope,sans-serif" font-size="10" font-weight="700"
+                                fill="#025b5f">↑ 4 BLOCKS</text>
+                            <text x="328" y="122" font-family="Manrope,sans-serif" font-size="8" fill="#025b5f">Babina,
+                                Badagaon,</text>
+                            <text x="328" y="132" font-family="Manrope,sans-serif" font-size="8" fill="#025b5f">Bangra,
+                                Mauranipur</text>
+                        </svg>
+
+                        <!-- Temperature Chart -->
+                        <svg viewBox="465 0 285 220" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="760" height="220" fill="transparent" rx="6" />
+                            <text x="470" y="24" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
+                                fill="#1a1a2e" letter-spacing="1.5">TEMPERATURE TREND (1951–2024)</text>
+                            <text x="470" y="40" font-family="Source Serif 4,serif" font-size="13" font-style="italic"
+                                fill="#025b5f">Every block rising · no exceptions</text>
+                            <line x1="490" y1="180" x2="730" y2="180" stroke="#d8cfc4" stroke-width="1" />
+                            <text x="490" y="197" font-family="Manrope,sans-serif" font-size="9"
+                                fill="#4b5563">1951</text>
+                            <text x="715" y="197" font-family="Manrope,sans-serif" font-size="9"
+                                fill="#4b5563">2024</text>
+                            <path d="M 490 160 Q 600 130 730 75" stroke="#e63946" stroke-width="2" fill="none" />
+                            <path d="M 490 158 Q 600 128 730 80" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.85" />
+                            <path d="M 490 162 Q 600 135 730 85" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.85" />
+                            <path d="M 490 165 Q 600 138 730 88" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.7" />
+                            <path d="M 490 159 Q 600 132 730 92" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.7" />
+                            <path d="M 490 163 Q 600 136 730 78" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.55" />
+                            <path d="M 490 167 Q 600 141 730 95" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.55" />
+                            <path d="M 490 161 Q 600 134 730 90" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.4" />
+                            <text x="490" y="60" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
+                                fill="#e63946">8 OF 8 BLOCKS WARMING</text>
+                            <text x="490" y="74" font-family="Source Serif 4,serif" font-size="11" font-style="italic"
+                                fill="#025b5f">incl. heat-waves intensifying fastest in UP</text>
+                        </svg>
+                    </div>
+                    <div
+                        style="text-align:center; font-family:'Manrope',sans-serif; font-size:9px; color:#4b5563; letter-spacing:1px; margin-top:12px;">
+                        SCHEMATIC TREND DIRECTIONS · ClimIntellio by ClimAgro Analytics
+                    </div>
+                </div>
+
+                <!-- BLOCK CHART TABLE -->
+                <div class="press-section-tag">Block-by-Block · Highest to Lowest Water Stress</div>
+                <div class="press-blockchart-scroll">
+                    <div class="press-blockchart">
+                        <svg viewBox="0 0 800 295" xmlns="http://www.w3.org/2000/svg">
+                            <g font-family="Manrope,sans-serif">
+                                <!-- Table Headers -->
+                                <text x="20" y="20" font-size="10" font-weight="700" fill="#4b5563"
+                                    letter-spacing="1">BLOCK</text>
+                                <text x="120" y="20" font-size="10" font-weight="700" fill="#4b5563"
+                                    letter-spacing="1">STRESS SIGNAL (BAR = RELATIVE INTENSITY)</text>
+                                <text x="690" y="20" font-size="10" font-weight="700" fill="#4b5563"
+                                    letter-spacing="1">STATUS</text>
+                                <line x1="20" y1="28" x2="780" y2="28" stroke="rgba(2, 91, 95, 0.15)"
+                                    stroke-width="1" />
+
+                                <!-- Row 1: Bamaur -->
+                                <text x="20" y="60" font-size="12" font-weight="700" fill="#1a1a2e">Bamaur</text>
+                                <rect x="120" y="48" width="320" height="16" fill="#e63946" />
+                                <text x="460" y="60" font-size="10" font-weight="700" fill="#4b5563">Driest in district
+                                    · Warming</text>
+                                <text x="690" y="60" font-size="11" font-weight="700" fill="#e63946">🔴 High</text>
+
+                                <!-- Row 2: Moth -->
+                                <text x="20" y="88" font-size="12" font-weight="700" fill="#1a1a2e">Moth</text>
+                                <rect x="120" y="76" width="296" height="16" fill="#e63946" />
+                                <text x="460" y="88" font-size="10" font-weight="700" fill="#4b5563">Declining rainfall
+                                    · Warming</text>
+                                <text x="690" y="88" font-size="11" font-weight="700" fill="#e63946">🔴 High</text>
+
+                                <!-- Row 3: Gursarai -->
+                                <text x="20" y="116" font-size="12" font-weight="700" fill="#1a1a2e">Gursarai</text>
+                                <rect x="120" y="104" width="290" height="16" fill="#e63946" />
+                                <text x="460" y="116" font-size="10" font-weight="700" fill="#4b5563">Declining rainfall
+                                    · Warming</text>
+                                <text x="690" y="116" font-size="11" font-weight="700" fill="#e63946">🔴 High</text>
+
+                                <!-- Row 4: Chirgaon -->
+                                <text x="20" y="144" font-size="12" font-weight="700" fill="#1a1a2e">Chirgaon</text>
+                                <rect x="120" y="132" width="248" height="16" fill="#f4a261" />
+                                <text x="460" y="144" font-size="10" font-weight="700" fill="#4b5563">Declining rainfall
+                                    · Warming</text>
+                                <text x="690" y="144" font-size="11" font-weight="700" fill="#f4a261">🟠 Medium</text>
+
+                                <!-- Row 5: Babina -->
+                                <text x="20" y="172" font-size="12" font-weight="700" fill="#1a1a2e">Babina</text>
+                                <rect x="120" y="160" width="165" height="16" fill="#a8a29e" opacity="0.8" />
+                                <text x="460" y="172" font-size="10" font-weight="700" fill="#4b5563">Slight rainfall
+                                    increase · Warming</text>
+                                <text x="690" y="172" font-size="11" font-weight="700" fill="#4b5563">⬛ Lower</text>
+
+                                <!-- Row 6: Badagaon -->
+                                <text x="20" y="200" font-size="12" font-weight="700" fill="#1a1a2e">Badagaon</text>
+                                <rect x="120" y="188" width="165" height="16" fill="#a8a29e" opacity="0.8" />
+                                <text x="460" y="200" font-size="10" font-weight="700" fill="#4b5563">Slight rainfall
+                                    increase · Warming</text>
+                                <text x="690" y="200" font-size="11" font-weight="700" fill="#4b5563">⬛ Lower</text>
+
+                                <!-- Row 7: Bangra -->
+                                <text x="20" y="228" font-size="12" font-weight="700" fill="#1a1a2e">Bangra</text>
+                                <rect x="120" y="216" width="160" height="16" fill="#a8a29e" opacity="0.8" />
+                                <text x="460" y="228" font-size="10" font-weight="700" fill="#4b5563">Slight rainfall
+                                    increase · Warming</text>
+                                <text x="690" y="228" font-size="11" font-weight="700" fill="#4b5563">⬛ Lower</text>
+
+                                <!-- Row 8: Mauranipur -->
+                                <text x="20" y="256" font-size="12" font-weight="700" fill="#1a1a2e">Mauranipur</text>
+                                <rect x="120" y="244" width="165" height="16" fill="#a8a29e" opacity="0.8" />
+                                <text x="460" y="256" font-size="10" font-weight="700" fill="#4b5563">Slight rainfall
+                                    increase · Warming</text>
+                                <text x="690" y="256" font-size="11" font-weight="700" fill="#4b5563">⬛ Lower</text>
+
+                                <!-- Caption -->
+                                <text x="20" y="282" font-size="9" fill="#4b5563">Bar length indicates relative
+                                    pre-monsoon water stress signal (rainfall trend + temperature trend combined)</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- STORY LEADS -->
+                <div class="press-section-tag">Four Story Angles</div>
+                <div class="press-storyleads">
+                    <div class="press-lead">
+                        <div class="press-lead-bg" style="background-image: url('farmer_reality.webp');">
+                        </div>
+                        <div class="lead-num">01</div>
+                        <h4>The Farmer's Reality</h4>
+                        <p>Farmers in Moth, Bamaur, and Gursarai are drilling deeper wells each year. This report puts
+                            123 years of data behind what they have been saying — and shows it is getting worse, not
+                            better.</p>
+                    </div>
+                    <div class="press-lead">
+                        <div class="press-lead-bg" style="background-image: url('heat_story.webp');"></div>
+                        <div class="lead-num">02</div>
+                        <h4>The Heat Story</h4>
+                        <p>Jhansi has one of the steepest rising heat-extreme trends in Uttar Pradesh. The same blocks
+                            losing rain are the ones whose heat extremes are intensifying — a compounding pressure on
+                            outdoor workers, crops, and agricultural credit risk.</p>
+                    </div>
+                    <div class="press-lead">
+                        <div class="press-lead-bg" style="background-image: url('watershed_story.webp');">
+                        </div>
+                        <div class="lead-num">03</div>
+                        <h4>The Watershed & Water Demand Story</h4>
+                        <p>Pre-monsoon is peak agricultural and domestic water demand — precisely when rainfall is
+                            lowest and temperatures highest. Watershed investments and rural credit portfolios designed
+                            around old rainfall patterns face a growing mismatch with current conditions.</p>
+                    </div>
+                    <div class="press-lead">
+                        <div class="press-lead-bg" style="background-image: url('planning_gap.webp');">
+                        </div>
+                        <div class="lead-num">04</div>
+                        <h4>The Planning Gap</h4>
+                        <p>Water systems and rural programmes in Jhansi were built around historical climate norms.
+                            Block-level data now exists to inform where interventions are most urgent — and where
+                            existing schemes need to be reassessed.</p>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-sep"></div>
+
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — CTA
+    ═══════════════════════════════════════ -->
+    <section id="cta">
+        <div class="cta-bg-text">CLIMINTELLIO</div>
+        <div class="cta-inner">
+
+            <h2>Your district has a climate story.<br><em>Let ClimIntellio tell it.</em></h2>
+            <p>The same climate intelligence is available for any of India's 600+ districts — ready for government
+                institutions, watershed programmes, and financial bodies to act on.</p>
+            <div class="cta-buttons">
+                <button onclick="openGateway()" class="cta-btn-primary">Request Your District Brief</button>
+                <button onclick="openBossBooking()" class="cta-btn-ghost">Book a Call</button>
+            </div>
+            <div class="cta-contact" style="line-height: 1.6;">
+                <a href="mailto:contact@climagroanalytics.com">contact@climagroanalytics.com</a> &middot; <a
+                    href="https://www.climagroanalytics.com/" target="_blank">climagroanalytics.com</a> &middot; +91
+                9277 296 270
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         DISTRICT BRIEF REQUEST MODAL
+    ═══════════════════════════════════════ -->
+    <div class="gateway-overlay" id="reportGateway" aria-hidden="true">
+        <div class="gateway-panel" role="dialog" aria-modal="true" aria-labelledby="gatewayTitle">
+            <!-- Dark header -->
+            <div class="gateway-head">
+                <div class="gateway-head-left">
+                    <span class="gateway-badge">ClimIntellio · District Brief</span>
+                    <h2 class="gateway-title" id="gatewayTitle">Request your district brief</h2>
+                    <p class="gateway-subtitle">Tell us which district you need climate intelligence for. We'll get back
+                        to you within one working day.</p>
+                </div>
+                <button class="gateway-close" type="button" aria-label="Close" onclick="closeGateway()">&times;</button>
+            </div>
+
+            <!-- Form body -->
+            <div class="gateway-body">
+                <form class="gateway-form" id="gatewayForm">
+                    <!-- Row 1: Name + Organisation -->
+                    <div class="gateway-field">
+                        <label for="gatewayName">Full name <span class="required">*</span></label>
+                        <input id="gatewayName" name="name" type="text" placeholder="Priya Sharma" required>
+                    </div>
+                    <div class="gateway-field">
+                        <label for="gatewayOrg">Organisation <span class="required">*</span></label>
+                        <input id="gatewayOrg" name="organisation" type="text" placeholder="NABARD / State Dept."
+                            required>
+                    </div>
+
+                    <!-- Row 2: Email -->
+                    <div class="gateway-field full">
+                        <label for="gatewayEmail">Email <span class="required">*</span></label>
+                        <input id="gatewayEmail" name="email" type="email" placeholder="priya@nabard.org" required>
+                    </div>
+
+                    <!-- Row 3: District -->
+                    <div class="gateway-field full">
+                        <label for="gatewayDistrict">District of interest <span class="required">*</span></label>
+                        <input id="gatewayDistrict" name="district" type="text"
+                            placeholder="e.g. Jhansi, Banda, Chitrakoot" required>
+                        <span class="gateway-field-hint">Available for any of India's 600+ districts</span>
+                    </div>
+
+                    <!-- Row 4: Phone (optional) -->
+                    <div class="gateway-field">
+                        <label for="gatewayPhone">Phone <span class="optional">(optional)</span></label>
+                        <input id="gatewayPhone" name="phone" type="tel" placeholder="+91 98765 43210">
+                    </div>
+
+                    <!-- Row 5: Role -->
+                    <div class="gateway-field">
+                        <label for="gatewayRole">I represent <span class="required">*</span></label>
+                        <select id="gatewayRole" name="role" required>
+                            <option value="">Select…</option>
+                            <option value="Government / Policy Maker">Government / Policy Maker</option>
+                            <option value="Agricultural Finance / NABARD">Agricultural Finance / NABARD</option>
+                            <option value="Researcher / Academic">Researcher / Academic</option>
+                            <option value="Press / Media">Press / Media</option>
+                            <option value="Farmer / FPO">Farmer / FPO</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Row 6: Notes -->
+                    <div class="gateway-field full">
+                        <label for="gatewayMessage">Notes <span class="optional">(optional)</span></label>
+                        <textarea id="gatewayMessage" name="message"
+                            placeholder="Any specific use case, programme, or data requirement you'd like us to know about"></textarea>
+                    </div>
+
+                    <!-- Privacy note -->
+                    <div class="gateway-privacy">
+                        By submitting, you agree to be contacted by ClimAgro Analytics regarding your request. We do not
+                        share your information with third parties.
+                    </div>
+
+                    <!-- Submit -->
+                    <button class="gateway-submit" type="submit">Request brief &nbsp;→</button>
+
+                    <!-- Divider -->
+                    <div class="gateway-divider">or</div>
+
+                    <!-- Book a call button -->
+                    <button type="button" class="gateway-alt-btn" onclick="closeGateway(); openBossBooking();">
+                        📅 Book a 30-minute call instead
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function openBossBooking() {
+            Cal("modal", {
+                calLink: "dr-harshit-mishra/climintellio-discovery"
+            });
+        }
+    </script>
+
+    <!-- ═══════════════════════════════════════
+         JAVASCRIPT
+    ═══════════════════════════════════════ -->
+    <script>
+        // Track mouse for cursor glow
+        const glow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', e => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // Background particles canvas animation
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+
+        window.addEventListener('resize', () => {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * W;
+                this.y = Math.random() * H;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.r = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.65 ? '#a3c1c2' : '#025b5f';
+            }
+            step() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > W) this.vx *= -1;
+                if (this.y < 0 || this.y > H) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        const particles = Array.from({ length: 45 }, () => new Particle());
+
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const d = Math.sqrt(dx * dx + dy * dy);
+                    if (d < 90) {
+                        ctx.globalAlpha = (1 - d / 90) * 0.08;
+                        ctx.strokeStyle = '#025b5f';
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function loop() {
+            ctx.clearRect(0, 0, W, H);
+            drawConnections();
+            particles.forEach(p => { p.step(); p.draw(); });
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(loop);
+        }
+        loop();
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
+
+        // Fire hero reveals immediately
+        document.querySelectorAll('#hero-1 .reveal').forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), 100 + i * 80);
+        });
+
+        // Report download form modal gateway logic
+        const gateway = document.getElementById('reportGateway');
+        const gatewayForm = document.getElementById('gatewayForm');
+
+        function openGateway() {
+            gateway.classList.add('is-open');
+            gateway.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => { const el = document.getElementById('gatewayName'); if (el) el.focus(); }, 100);
+        }
+
+        function closeGateway() {
+            gateway.classList.remove('is-open');
+            gateway.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // Close on backdrop click
+        gateway.addEventListener('click', (event) => {
+            if (event.target === gateway) closeGateway();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && gateway.classList.contains('is-open')) {
+                closeGateway();
+            }
+        });
+
+        gatewayForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const submitBtn = gatewayForm.querySelector('.gateway-submit');
+            const originalText = submitBtn ? submitBtn.innerText : null;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Submitting...';
+            }
+
+            const payload = {
+                name: document.getElementById('gatewayName').value.trim(),
+                email: document.getElementById('gatewayEmail').value.trim(),
+                phone: document.getElementById('gatewayPhone').value.trim(),
+                title: document.getElementById('gatewayRole').value.trim(),
+                linkedin_id: document.getElementById('gatewayLinkedIn').value.trim(),
+                comment: document.getElementById('gatewayMessage').value.trim(),
+                url: window.location.origin + window.location.pathname
+            };
+
+            try {
+                const response = await fetch('/api/submit_report_gateway', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error('Submission failed. ' + response.status + ' ' + errorText);
+                }
+
+                const data = await response.json();
+                if (!data.success) {
+                    throw new Error(data.message || 'Submission failed. Please try again.');
+                }
+
+                closeGateway();
+                const pdfWindow = window.open(reportUrl, '_blank');
+                if (!pdfWindow || pdfWindow.closed || typeof pdfWindow.closed === 'undefined') {
+                    window.location.href = reportUrl;
+                }
+            } catch (error) {
+                console.error('Report gateway submission error:', error);
+                alert('Could not save your request. Please try again.\n' + error.message);
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    if (originalText !== null) submitBtn.innerText = originalText;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
