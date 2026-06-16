@@ -200,8 +200,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 40px 40px 30px;
-            overflow: hidden;
+            padding: 24px 40px 20px;
+            overflow: visible;
             background: linear-gradient(135deg, #e8f5f5 0%, #d5ecea 60%, #d5ecea 100%);
         }
 
@@ -237,7 +237,8 @@
         .hero1-right {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            margin-top: -30px;
         }
 
         .hero1-image-wrap {
@@ -299,8 +300,10 @@
             font-family: 'DM Sans', sans-serif;
             font-size: clamp(15px, 1.8vw, 18px);
             line-height: 1.75;
-            color: #1f2937; /* high contrast dark charcoal */
-            font-weight: 500; /* slightly bolder for readability */
+            color: #1f2937;
+            /* high contrast dark charcoal */
+            font-weight: 500;
+            /* slightly bolder for readability */
             max-width: 600px;
             margin-bottom: 16px;
             margin-top: 14px;
@@ -405,7 +408,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 48px 40px;
+            padding: 24px 40px 48px;
             position: relative;
             overflow: hidden;
         }
@@ -701,6 +704,7 @@
             0% {
                 transform: translateX(0%);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -812,7 +816,7 @@
         /* Divergence section */
         .press-divergence {
             margin: 40px 0;
-            padding: 32px;
+            padding: 52px 32px;
             background: #fbfaf3;
             border: 1.5px solid #025b5f;
             border-radius: 6px;
@@ -851,13 +855,14 @@
 
         .press-divergence-charts {
             display: grid;
-            grid-template-columns: 1.25fr 1fr;
-            gap: 24px;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 0 6px;
+            align-items: center;
         }
 
         .press-divergence-charts svg {
             width: 100%;
-            height: auto;
+            height: 320px;
             display: block;
         }
 
@@ -906,12 +911,12 @@
         .press-lead {
             position: relative;
             overflow: hidden;
-            background: #012d2f; /* dark forest green background */
-            border: 1.5px solid rgba(198, 255, 0, 0.15); /* subtle lime border */
+            background: #f4f8f7;
+            border: 2px solid rgba(2, 91, 95, 0.55);
             border-radius: 10px;
             padding: 24px 24px 22px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.35s ease, background 0.35s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 1;
         }
 
@@ -920,10 +925,10 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            opacity: 0.75; /* highly visible in original colors */
+            opacity: 0.30;
             mix-blend-mode: normal;
-            filter: contrast(1.05) brightness(0.95);
-            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s ease;
+            filter: contrast(0.9) brightness(1.1) saturate(0.8);
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: -1;
         }
 
@@ -932,19 +937,17 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, #fbfaf3 45%, rgba(251, 250, 243, 0.2) 100%);
+            background: linear-gradient(to top, rgba(244, 248, 247, 0.96) 50%, rgba(244, 248, 247, 0.75) 75%, rgba(244, 248, 247, 0.10) 100%);
             z-index: 1;
         }
 
         .press-lead:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 32px rgba(2, 91, 95, 0.18);
-            border-color: rgba(2, 91, 95, 0.45);
         }
 
         .press-lead:hover .press-lead-bg {
-            transform: scale(1.06);
-            opacity: 0.90; /* even more visible on hover */
+            transform: scale(1.04);
         }
 
         .press-lead h4,
@@ -958,40 +961,32 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             font-weight: 700;
-            color: #025b5f; /* dark teal normally */
+            color: #025b5f;
             line-height: 1;
             margin-bottom: 8px;
-            transition: color 0.3s ease;
         }
 
         .press-lead h4 {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.3;
             margin-bottom: 10px;
-            color: #0f172a; /* very dark slate */
-            transition: color 0.3s ease;
+            color: #012d2f;
         }
 
         .press-lead p {
             font-family: 'DM Sans', sans-serif;
             font-size: 14px;
-            line-height: 1.6;
-            color: #1f2937; /* very dark charcoal */
-            transition: color 0.3s ease;
+            line-height: 1.65;
+            color: #1a2e2f;
+            font-weight: 500;
         }
 
-        .press-lead:hover h4 {
-            color: #000000; /* pure black on hover */
-        }
-
-        .press-lead:hover p {
-            color: #111111; /* very dark charcoal on hover */
-        }
-
+        .press-lead:hover h4,
+        .press-lead:hover p,
         .press-lead:hover .lead-num {
-            color: #012d2f;
+            /* no color change on hover */
         }
 
         /* Floating CTA on the right side */
@@ -1002,8 +997,10 @@
             transform: translateY(-50%) rotate(-90deg);
             transform-origin: right bottom;
             z-index: 1000;
-            background: #c6ff00; /* vibrant fluorescent green-yellow */
-            color: #012d2f; /* dark forest green text for high readability */
+            background: #c6ff00;
+            /* vibrant fluorescent green-yellow */
+            color: #012d2f;
+            /* dark forest green text for high readability */
             font-family: 'DM Sans', sans-serif;
             font-size: 13.5px;
             font-weight: 700;
@@ -1019,9 +1016,11 @@
         }
 
         .floating-cta:hover {
-            background: #b2e600; /* slightly darker fluorescent green-yellow on hover */
+            background: #b2e600;
+            /* slightly darker fluorescent green-yellow on hover */
             color: #012d2f;
-            transform: translateY(-50%) rotate(-90deg) translateY(-5px); /* pop out towards left */
+            transform: translateY(-50%) rotate(-90deg) translateY(-5px);
+            /* pop out towards left */
             box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -1652,6 +1651,175 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* ─── 480px — Phone ─────────────────────── */
+        @media(max-width: 480px) {
+            #hero-1 {
+                padding: 80px 18px 32px;
+            }
+
+            .hero1-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .hero1-left {
+                align-items: center;
+            }
+
+            .hero1-image-wrap {
+                max-width: 100%;
+            }
+
+            .hero1-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            #hero-2 {
+                padding: 32px 18px 40px;
+            }
+
+            .hero2-inner {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .hero2-left {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .hero2-cta {
+                justify-content: center;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .hero2-cta a,
+            .hero2-cta button {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            /* Marquee ticker — let it wrap on phones */
+            .press-flag {
+                padding: 10px 0;
+            }
+
+            .marquee-item {
+                font-size: 10px;
+                gap: 6px;
+            }
+
+            /* Section 3 content */
+            .press-body {
+                padding: 20px 16px;
+            }
+
+            .press-hero h1 {
+                font-size: clamp(24px, 7vw, 36px);
+            }
+
+            .press-deck {
+                font-size: 15px;
+            }
+
+            /* Divergence chart — stack vertically */
+            .press-divergence {
+                padding: 28px 16px;
+            }
+
+            .press-divergence-charts {
+                grid-template-columns: 1fr !important;
+                gap: 16px 0;
+            }
+
+            .press-divergence-charts svg {
+                height: 200px;
+            }
+
+            /* Center labels become a horizontal row between stacked charts */
+            .press-divergence-charts > div {
+                flex-direction: row !important;
+                justify-content: space-around !important;
+                gap: 12px !important;
+                padding: 6px 0 !important;
+            }
+
+            /* Story lead cards — single column */
+            .press-storyleads {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+            }
+
+            .press-lead {
+                padding: 20px 18px;
+            }
+
+            /* Block chart scroll */
+            .press-blockchart-scroll {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Megastat */
+            .press-megastat {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+                text-align: center;
+            }
+
+            /* CTA section */
+            #cta {
+                padding: 40px 18px 50px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+
+            .cta-btn-primary,
+            .cta-btn-ghost {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            /* Hide floating CTA on phones — too intrusive */
+            .floating-cta {
+                display: none;
+            }
+
+            /* Featured report */
+            .press-featured-report {
+                flex-direction: column;
+                padding: 18px;
+                gap: 14px;
+            }
+
+            .press-featured-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Nav */
+            nav {
+                padding: 0 16px;
+                height: 56px;
+            }
+
+            .nav-by,
+            .nav-links {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -1659,7 +1827,8 @@
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- Floating CTA -->
-    <button class="floating-cta" onclick="window.open('https://www.climagroanalytics.com/climintellio', '_blank')">Explore ClimIntellio</button>
+    <button class="floating-cta"
+        onclick="window.open('https://www.climagroanalytics.com/climintellio', '_blank')">Explore ClimIntellio</button>
 
     <!-- ═══════════════════════════════════════
          STICKY NAV
@@ -1715,8 +1884,26 @@
         </div>
     </section>
 
-    <div class="section-sep"></div>
-
+    <!-- Moving stat ticker between Section 1 and Section 2 -->
+    <div class="press-flag" style="border-bottom:none; border-top: 1px solid rgba(2,91,95,0.15);">
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
+                <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
+                <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
+                <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
+                <span class="marquee-item"><span class="snum">500+</span> Districts</span>
+                <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
+                <!-- Duplicate for seamless looping -->
+                <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
+                <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
+                <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
+                <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
+                <span class="marquee-item"><span class="snum">500+</span> Districts</span>
+                <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
+            </div>
+        </div>
+    </div>
 
     <!-- ═══════════════════════════════════════
          SECTION 2 — JHANSI HERO
@@ -1798,25 +1985,6 @@
     ═══════════════════════════════════════ -->
     <section id="press-content">
         <div class="press-doc">
-            <div class="press-flag">
-                <div class="marquee-wrapper">
-                    <div class="marquee-content">
-                        <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
-                        <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
-                        <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
-                        <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
-                        <span class="marquee-item"><span class="snum">500+</span> Districts</span>
-                        <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
-                        <!-- Duplicate for seamless looping -->
-                        <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
-                        <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
-                        <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
-                        <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
-                        <span class="marquee-item"><span class="snum">500+</span> Districts</span>
-                        <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
-                    </div>
-                </div>
-            </div>
 
             <div class="press-body">
 
@@ -1833,7 +2001,7 @@
 
                     <div class="press-divergence-charts">
                         <!-- Rainfall Chart -->
-                        <svg viewBox="0 0 430 220" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 330 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="430" height="220" fill="transparent" rx="6" />
                             <text x="20" y="24" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
                                 fill="#1a1a2e" letter-spacing="1.5">RAINFALL TREND (1901–2024)</text>
@@ -1861,57 +2029,57 @@
                                 opacity="0.4" />
                             <path d="M 40 160 Q 180 145 320 122" stroke="#025b5f" stroke-width="1.5" fill="none"
                                 opacity="0.4" />
-                            <!-- labels -->
-                            <text x="328" y="148" font-family="Manrope,sans-serif" font-size="10" font-weight="700"
-                                fill="#e63946">↓ 4 BLOCKS</text>
-                            <text x="328" y="160" font-family="Manrope,sans-serif" font-size="8" fill="#e63946">Moth,
-                                Bamaur,</text>
-                            <text x="328" y="170" font-family="Manrope,sans-serif" font-size="8"
-                                fill="#e63946">Chirgaon, Gursarai</text>
-                            <text x="328" y="110" font-family="Manrope,sans-serif" font-size="10" font-weight="700"
-                                fill="#025b5f">↑ 4 BLOCKS</text>
-                            <text x="328" y="122" font-family="Manrope,sans-serif" font-size="8" fill="#025b5f">Babina,
-                                Badagaon,</text>
-                            <text x="328" y="132" font-family="Manrope,sans-serif" font-size="8" fill="#025b5f">Bangra,
-                                Mauranipur</text>
+                            <!-- labels removed — now in center column -->
                         </svg>
 
+                        <!-- CENTER LABELS -->
+                        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; padding: 8px 0;">
+                            <div style="text-align:center;">
+                                <div style="font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; color:#025b5f; letter-spacing:0.05em;">↑ 4 BLOCKS</div>
+                                <div style="font-family:'Manrope',sans-serif; font-size:11px; color:#025b5f; margin-top:5px; line-height:1.6;">Babina, Badagaon,<br>Bangra, Mauranipur</div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div style="font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; color:#e63946; letter-spacing:0.05em;">↓ 4 BLOCKS</div>
+                                <div style="font-family:'Manrope',sans-serif; font-size:11px; color:#e63946; margin-top:5px; line-height:1.6;">Moth, Bamaur,<br>Chirgaon, Gursarai</div>
+                            </div>
+                        </div>
+
                         <!-- Temperature Chart -->
-                        <svg viewBox="465 0 285 220" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="760" height="220" fill="transparent" rx="6" />
-                            <text x="470" y="24" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
+                        <svg viewBox="0 0 430 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="430" height="220" fill="transparent" rx="6" />
+                            <text x="20" y="24" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
                                 fill="#1a1a2e" letter-spacing="1.5">TEMPERATURE TREND (1951–2024)</text>
-                            <text x="470" y="40" font-family="Source Serif 4,serif" font-size="13" font-style="italic"
+                            <text x="20" y="40" font-family="Source Serif 4,serif" font-size="13" font-style="italic"
                                 fill="#025b5f">Every block rising · no exceptions</text>
-                            <line x1="490" y1="180" x2="730" y2="180" stroke="#d8cfc4" stroke-width="1" />
-                            <text x="490" y="197" font-family="Manrope,sans-serif" font-size="9"
-                                fill="#4b5563">1951</text>
-                            <text x="715" y="197" font-family="Manrope,sans-serif" font-size="9"
-                                fill="#4b5563">2024</text>
-                            <path d="M 490 160 Q 600 130 730 75" stroke="#e63946" stroke-width="2" fill="none" />
-                            <path d="M 490 158 Q 600 128 730 80" stroke="#e63946" stroke-width="2" fill="none"
-                                opacity="0.85" />
-                            <path d="M 490 162 Q 600 135 730 85" stroke="#e63946" stroke-width="2" fill="none"
-                                opacity="0.85" />
-                            <path d="M 490 165 Q 600 138 730 88" stroke="#e63946" stroke-width="2" fill="none"
-                                opacity="0.7" />
-                            <path d="M 490 159 Q 600 132 730 92" stroke="#e63946" stroke-width="2" fill="none"
-                                opacity="0.7" />
-                            <path d="M 490 163 Q 600 136 730 78" stroke="#e63946" stroke-width="2" fill="none"
-                                opacity="0.55" />
-                            <path d="M 490 167 Q 600 141 730 95" stroke="#e63946" stroke-width="2" fill="none"
-                                opacity="0.55" />
-                            <path d="M 490 161 Q 600 134 730 90" stroke="#e63946" stroke-width="2" fill="none"
-                                opacity="0.4" />
-                            <text x="490" y="60" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
+                            <text x="20" y="60" font-family="Manrope,sans-serif" font-size="11" font-weight="700"
                                 fill="#e63946">8 OF 8 BLOCKS WARMING</text>
-                            <text x="490" y="74" font-family="Source Serif 4,serif" font-size="11" font-style="italic"
+                            <text x="20" y="74" font-family="Source Serif 4,serif" font-size="11" font-style="italic"
                                 fill="#025b5f">incl. heat-waves intensifying fastest in UP</text>
+                            <line x1="40" y1="180" x2="320" y2="180" stroke="#d8cfc4" stroke-width="1" />
+                            <text x="40" y="197" font-family="Manrope,sans-serif" font-size="9"
+                                fill="#4b5563">1951</text>
+                            <text x="305" y="197" font-family="Manrope,sans-serif" font-size="9"
+                                fill="#4b5563">2024</text>
+                            <path d="M 40 160 Q 180 130 320 75" stroke="#e63946" stroke-width="2" fill="none" />
+                            <path d="M 40 158 Q 180 128 320 80" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.85" />
+                            <path d="M 40 162 Q 180 135 320 85" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.85" />
+                            <path d="M 40 165 Q 180 138 320 88" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.7" />
+                            <path d="M 40 159 Q 180 132 320 92" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.7" />
+                            <path d="M 40 163 Q 180 136 320 78" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.55" />
+                            <path d="M 40 167 Q 180 141 320 95" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.55" />
+                            <path d="M 40 161 Q 180 134 320 90" stroke="#e63946" stroke-width="2" fill="none"
+                                opacity="0.4" />
                         </svg>
                     </div>
                     <div
-                        style="text-align:center; font-family:'Manrope',sans-serif; font-size:9px; color:#4b5563; letter-spacing:1px; margin-top:12px;">
-                        SCHEMATIC TREND DIRECTIONS · ClimIntellio by ClimAgro Analytics
+                        style="text-align:center; font-family:'Manrope',sans-serif; font-size:9px; color:#4b5563; letter-spacing:1px; margin-top:12px; font-weight:700;">
+                        SCHEMATIC TREND DIRECTIONS · <strong style="color:#025b5f;">Source:</strong> ClimIntellio by ClimAgro Analytics
                     </div>
                 </div>
 
@@ -1988,7 +2156,7 @@
                                 <text x="690" y="256" font-size="11" font-weight="700" fill="#4b5563">⬛ Lower</text>
 
                                 <!-- Caption -->
-                                <text x="20" y="282" font-size="9" fill="#4b5563">Bar length indicates relative
+                                <text x="20" y="282" font-size="9" font-weight="700" fill="#4b5563">Bar length indicates relative
                                     pre-monsoon water stress signal (rainfall trend + temperature trend combined)</text>
                             </g>
                         </svg>
