@@ -4,7 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClimIntellio · Jhansi · Warm Earthy Theme</title>
+    <title>Jhansi Hydroclimatic Risk & Monsoon Report 2026 | ClimAgro Analytics</title>
+    <meta name="description"
+        content="Access the Jhansi block-level climate risk profiling gateway. Verify credentials to view interactive models of heatwaves and monsoon trends.">
+    <meta name="keywords"
+        content="Jhansi climate risk, Bundelkhand water stress, monsoon report 2026, ClimAgro Analytics, ClimIntellio, agricultural risk, climate resilience India">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jhansi Hydroclimatic Risk & Monsoon Report 2026 | ClimAgro Analytics">
+    <meta property="og:description"
+        content="Access the Jhansi block-level climate risk profiling gateway. Verify credentials to view interactive models of heatwaves and monsoon trends.">
+    <meta property="og:image" content="image_meta.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jhansi Hydroclimatic Risk & Monsoon Report 2026 | ClimAgro Analytics">
+    <meta name="twitter:description"
+        content="Access the Jhansi block-level climate risk profiling gateway. Verify credentials to view interactive models of heatwaves and monsoon trends.">
+    <meta name="twitter:image" content="image_meta.png">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Manrope:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -196,12 +215,12 @@
         /* Hero (section 1) */
         #hero-1 {
             position: relative;
-            min-height: auto;
+            min-height: calc(100vh - 68px);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 24px 40px 20px;
-            overflow: visible;
+            justify-content: space-between;
+            padding: 24px 40px 0;
+            overflow: hidden;
             background: linear-gradient(135deg, #e8f5f5 0%, #d5ecea 60%, #d5ecea 100%);
         }
 
@@ -216,7 +235,7 @@
             position: relative;
             z-index: 2;
             max-width: 1280px;
-            margin: 0 auto;
+            margin: auto auto;
             width: 100%;
         }
 
@@ -408,9 +427,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 24px 40px 48px;
+            padding: 48px 40px 48px;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
         }
 
         .hero2-grid {
@@ -491,7 +511,7 @@
 
         .hero2-h1 {
             font-family: 'DM Sans', sans-serif;
-            font-size: clamp(32px, 4.5vw, 52px);
+            font-size: clamp(28px, 3.8vw, 44px);
             font-weight: 700;
             line-height: 1.15;
             letter-spacing: -0.01em;
@@ -1744,7 +1764,7 @@
             }
 
             /* Center labels become a horizontal row between stacked charts */
-            .press-divergence-charts > div {
+            .press-divergence-charts>div {
                 flex-direction: row !important;
                 justify-content: space-around !important;
                 gap: 12px !important;
@@ -1843,8 +1863,6 @@
         <a class="nav-cta" href="https://www.climagroanalytics.com/jhashi_report.php" target="_blank">Access Jhansi
             Report</a>
     </nav>
-
-
     <!-- ═══════════════════════════════════════
          SECTION 1 — CLIMINTELLIO HERO
     ═══════════════════════════════════════ -->
@@ -1859,9 +1877,9 @@
                         PLATFORM</div>
 
                     <h1 class="hero1-h1 reveal" style="transition-delay:.08s">
-                        Every district.<br>
-                        <em>Every block.</em><br>
-                        Every year since 1901.
+                        Every district<br>
+                        <em>Every block</em><br>
+                        Every year since 1901
                     </h1>
 
                     <p class="hero1-tagline reveal" style="transition-delay:.16s">
@@ -1882,28 +1900,29 @@
 
 
         </div>
-    </section>
 
-    <!-- Moving stat ticker between Section 1 and Section 2 -->
-    <div class="press-flag" style="border-bottom:none; border-top: 1px solid rgba(2,91,95,0.15);">
-        <div class="marquee-wrapper">
-            <div class="marquee-content">
-                <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
-                <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
-                <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
-                <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
-                <span class="marquee-item"><span class="snum">500+</span> Districts</span>
-                <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
-                <!-- Duplicate for seamless looping -->
-                <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
-                <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
-                <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
-                <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
-                <span class="marquee-item"><span class="snum">500+</span> Districts</span>
-                <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
+        <!-- Moving stat ticker inside Section 1 at the bottom -->
+        <div class="press-flag"
+            style="border-bottom:none; border-top: 1px solid rgba(2,91,95,0.15); position: relative; z-index: 5; margin-top: auto;">
+            <div class="marquee-wrapper">
+                <div class="marquee-content">
+                    <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
+                    <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
+                    <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
+                    <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
+                    <span class="marquee-item"><span class="snum">500+</span> Districts</span>
+                    <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
+                    <!-- Duplicate for seamless looping -->
+                    <span class="marquee-item"><span class="snum">120+</span> Years of Records</span>
+                    <span class="marquee-item"><span class="snum">75</span> Years of Projections</span>
+                    <span class="marquee-item"><span class="snum">3</span> SSP Pathways</span>
+                    <span class="marquee-item"><span class="snum">13</span> Hazard Types</span>
+                    <span class="marquee-item"><span class="snum">500+</span> Districts</span>
+                    <span class="marquee-item"><span class="snum">5,000+</span> Sub-Districts</span>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- ═══════════════════════════════════════
          SECTION 2 — JHANSI HERO
@@ -1911,25 +1930,22 @@
     <section id="hero-2">
         <div class="hero2-grid"></div>
         <div class="hero2-glow"></div>
-
         <div class="hero2-inner">
             <!-- Left: headline + CTA -->
             <div class="hero2-left reveal">
                 <div class="hero2-kicker">
                     <span class="hero2-kicker-dot"></span>
-                    A 123-Year Climate Record · Bundelkhand
+                    INSIGHTS FROM CLIMINTELLIO · BUNDELKHAND, 123-YEAR RECORD
                 </div>
 
                 <h1 class="hero2-h1">
-                    Synergistic Effects of Rising Summer Temperatures &amp;<br>
-                    <em>Decreasing Summer Season Rainfall</em>
+                    Synergistic Effects of Rising<br>
+                    Summer Temperatures &amp; <em>Decreasing Summer Season Rainfall</em>
                 </h1>
                 <h2 class="hero2-h2">on Jhansi's Water Availability</h2>
 
                 <p class="hero2-desc">
-                    Average summer temperature: <strong style="color:#025b5f">30°C</strong> &nbsp;·&nbsp;
-                    Average maximum summer temperature: <strong style="color:#025b5f">37.53°C</strong> &nbsp;·&nbsp;
-                    Average peak summer maximum: <strong style="color:#04888e">44.90°C</strong>
+                    Based on Indian Meteorological Department (IMD) daily gridded data 1901-2024
                 </p>
 
                 <div class="hero2-cta">
@@ -2033,14 +2049,23 @@
                         </svg>
 
                         <!-- CENTER LABELS -->
-                        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; padding: 8px 0;">
+                        <div
+                            style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; padding: 8px 0;">
                             <div style="text-align:center;">
-                                <div style="font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; color:#025b5f; letter-spacing:0.05em;">↑ 4 BLOCKS</div>
-                                <div style="font-family:'Manrope',sans-serif; font-size:11px; color:#025b5f; margin-top:5px; line-height:1.6;">Babina, Badagaon,<br>Bangra, Mauranipur</div>
+                                <div
+                                    style="font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; color:#025b5f; letter-spacing:0.05em;">
+                                    ↑ 4 BLOCKS</div>
+                                <div
+                                    style="font-family:'Manrope',sans-serif; font-size:11px; color:#025b5f; margin-top:5px; line-height:1.6;">
+                                    Babina, Badagaon,<br>Bangra, Mauranipur</div>
                             </div>
                             <div style="text-align:center;">
-                                <div style="font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; color:#e63946; letter-spacing:0.05em;">↓ 4 BLOCKS</div>
-                                <div style="font-family:'Manrope',sans-serif; font-size:11px; color:#e63946; margin-top:5px; line-height:1.6;">Moth, Bamaur,<br>Chirgaon, Gursarai</div>
+                                <div
+                                    style="font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; color:#e63946; letter-spacing:0.05em;">
+                                    ↓ 4 BLOCKS</div>
+                                <div
+                                    style="font-family:'Manrope',sans-serif; font-size:11px; color:#e63946; margin-top:5px; line-height:1.6;">
+                                    Moth, Bamaur,<br>Chirgaon, Gursarai</div>
                             </div>
                         </div>
 
@@ -2079,7 +2104,8 @@
                     </div>
                     <div
                         style="text-align:center; font-family:'Manrope',sans-serif; font-size:9px; color:#4b5563; letter-spacing:1px; margin-top:12px; font-weight:700;">
-                        SCHEMATIC TREND DIRECTIONS · <strong style="color:#025b5f;">Source:</strong> ClimIntellio by ClimAgro Analytics
+                        SCHEMATIC TREND DIRECTIONS · <strong style="color:#025b5f;">Analysis:</strong> ClimIntellio by
+                        ClimAgro Analytics · <strong style="color:#025b5f;">Data:</strong> IMD
                     </div>
                 </div>
 
@@ -2156,7 +2182,8 @@
                                 <text x="690" y="256" font-size="11" font-weight="700" fill="#4b5563">⬛ Lower</text>
 
                                 <!-- Caption -->
-                                <text x="20" y="282" font-size="9" font-weight="700" fill="#4b5563">Bar length indicates relative
+                                <text x="20" y="282" font-size="9" font-weight="700" fill="#4b5563">Bar length indicates
+                                    relative
                                     pre-monsoon water stress signal (rainfall trend + temperature trend combined)</text>
                             </g>
                         </svg>
@@ -2469,24 +2496,42 @@
                 submitBtn.innerText = 'Submitting...';
             }
 
-            const payload = {
-                name: document.getElementById('gatewayName').value.trim(),
-                email: document.getElementById('gatewayEmail').value.trim(),
-                phone: document.getElementById('gatewayPhone').value.trim(),
-                title: document.getElementById('gatewayRole').value.trim(),
-                linkedin_id: document.getElementById('gatewayLinkedIn').value.trim(),
-                comment: document.getElementById('gatewayMessage').value.trim(),
-                url: window.location.origin + window.location.pathname
-            };
+            const name = document.getElementById('gatewayName').value.trim();
+            const org = document.getElementById('gatewayOrg').value.trim();
+            const email = document.getElementById('gatewayEmail').value.trim();
+            const district = document.getElementById('gatewayDistrict').value.trim();
+            const phone = document.getElementById('gatewayPhone').value.trim();
+            const role = document.getElementById('gatewayRole').value.trim();
+            const notes = document.getElementById('gatewayMessage').value.trim();
+
+            const comment = `Organisation: ${org}\nDistrict of Interest: ${district}\nNotes: ${notes}`;
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('title', role);
+            formData.append('subject', 'jhansi pager');
+            formData.append('comment', comment);
+            formData.append('url', window.location.origin + window.location.pathname);
+
+            const pathPrefix = window.location.pathname.startsWith('/Climagro/') ? '/Climagro' : '';
+            const fetchUrl = window.location.origin + pathPrefix + '/api/submit_report_gateway';
 
             try {
-                const response = await fetch('/api/submit_report_gateway', {
+                let response = await fetch(fetchUrl, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
+                    body: formData
                 });
+
+                // Fallback for non-rewritten URL structures
+                if (response.status === 404) {
+                    const fallbackUrl = window.location.origin + pathPrefix + '/index.php/welcome/submit_report_gateway';
+                    response = await fetch(fallbackUrl, {
+                        method: 'POST',
+                        body: formData
+                    });
+                }
 
                 if (!response.ok) {
                     const errorText = await response.text();
@@ -2498,11 +2543,9 @@
                     throw new Error(data.message || 'Submission failed. Please try again.');
                 }
 
+                alert('Thank you! Your request for the district brief has been submitted successfully.');
                 closeGateway();
-                const pdfWindow = window.open(reportUrl, '_blank');
-                if (!pdfWindow || pdfWindow.closed || typeof pdfWindow.closed === 'undefined') {
-                    window.location.href = reportUrl;
-                }
+                gatewayForm.reset();
             } catch (error) {
                 console.error('Report gateway submission error:', error);
                 alert('Could not save your request. Please try again.\n' + error.message);
